@@ -6,7 +6,7 @@
 
 ### **[Live Demo](https://inventory-system-portfolio.vercel.app/)**
 
-![Inventory System Dashboard](placeholder-for-your-screenshot.png)
+![Inventory System Dashboard](./docs/landingPage.png)
 
 *Note: The free-tier backend may take 30-60 seconds to "wake up" on the first visit.*
 
