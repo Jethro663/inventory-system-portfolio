@@ -1,0 +1,84 @@
+/* src/pages/footerPages/HelpCenter.module.css */
+.helpCenterPage {
+    padding: var(--space-8) var(--space-6);
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.header h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--on-background);
+    margin-bottom: var(--space-2);
+}
+
+.header p {
+    font-size: var(--text-lg);
+    color: var(--neutral-500);
+}
+
+.faqCard {
+    padding: var(--space-4);
+}
+
+.faqItem {
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .faqItem {
+    border-bottom-color: var(--neutral-700);
+}
+
+.faqItem:last-child {
+    border-bottom: none;
+}
+
+.faqQuestion {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--on-background);
+    padding: var(--space-5) var(--space-4);
+    cursor: pointer;
+    list-style: none; /* Hide the default triangle */
+    position: relative;
+    transition: background-color var(--transition-fast);
+}
+
+.faqQuestion:hover {
+    background-color: var(--neutral-50);
+}
+
+[data-theme="dark"] .faqQuestion:hover {
+    background-color: var(--neutral-800);
+}
+
+/* Add a custom dropdown arrow */
+.faqQuestion::after {
+    content: '▼';
+    position: absolute;
+    right: var(--space-4);
+    font-size: 0.8em;
+    color: var(--neutral-400);
+    transition: transform var(--transition-base);
+}
+
+.faqItem[open] > .faqQuestion::after {
+    transform: rotate(180deg);
+}
+
+.faqAnswer {
+    padding: 0 var(--space-4) var(--space-5) var(--space-4);
+    color: var(--on-surface);
+    line-height: 1.7;
+}

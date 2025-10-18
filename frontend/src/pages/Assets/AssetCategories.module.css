@@ -1,0 +1,196 @@
+/* src/pages/Assets/AssetCategories.module.css */
+.categories {
+    min-height: 100vh;
+    background: var(--background);
+    padding: var(--space-8) var(--space-6);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-6);
+}
+
+.header h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--on-background);
+    margin-bottom: var(--space-2);
+}
+
+.header p {
+    color: var(--neutral-500);
+    font-size: var(--text-lg);
+}
+
+.searchCard {
+    margin-bottom: var(--space-6);
+}
+
+.filterGrid {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: nowrap;
+    justify-content: space-between; /* This pushes items to edges */
+}
+
+/* Search input takes available space */
+.filterGrid input {
+    flex: 1; /* Takes all available space */
+    max-width: 350px; /* Remove max-width restriction */
+    margin: 0;
+}
+
+/* Button stays on the right */
+.filterGrid button {
+    flex-shrink: 0; /* Prevents button from shrinking */
+    white-space: nowrap;
+    max-width: none;
+}
+
+.spacer {
+    width: 1900px;
+}
+
+.categoryCell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.categoryIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+}
+
+.categoryName {
+    font-weight: 600;
+    color: var(--on-background);
+}
+
+.categoryDescription {
+    font-size: var(--text-sm);
+    color: var(--neutral-500);
+    margin-top: var(--space-1);
+}
+
+.assetCount {
+    font-weight: 600;
+    color: var(--primary-600);
+}
+
+.actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.label {
+    font-weight: 600;
+    color: var(--on-surface);
+    font-size: var(--text-sm);
+}
+
+.textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--neutral-300);
+    border-radius: var(--radius-lg);
+    background: var(--background);
+    color: var(--on-background);
+    font-size: var(--text-base);
+    font-family: inherit;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary-500);
+}
+
+.fileInput {
+    padding: var(--space-2);
+    border: 2px dashed var(--neutral-300);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+}
+
+.iconPreview {
+    margin-top: var(--space-2);
+}
+
+.iconPreview img {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+}
+
+.errorMessage {
+    background: var(--error);
+    color: white;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+}
+
+.errorText {
+    color: var(--error);
+    font-size: var(--text-sm);
+}
+
+.formActions {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: flex-end;
+    margin-top: var(--space-4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .categories {
+        padding: var(--space-6) var(--space-4);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .filterGrid {
+        flex-direction: column; /* Stack on mobile */
+        gap: var(--space-3);
+    }
+
+    .filterGrid input {
+        width: 100%;
+    }
+
+    .filterGrid .button {
+        width: 100%;
+    }
+
+    .formActions {
+        flex-direction: column;
+    }
+}

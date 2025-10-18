@@ -1,0 +1,86 @@
+/* src/components/UI/Input.module.css */
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--on-surface);
+  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.required {
+  color: var(--error);
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--neutral-300);
+  border-radius: var(--radius-lg);
+  background: var(--background);
+  color: var(--on-background);
+  font-size: var(--text-base);
+  transition: all var(--transition-fast);
+  font-family: inherit;
+}
+
+.input.withIcon {
+  padding-left: var(--space-10);
+}
+
+.input::placeholder {
+  color: var(--neutral-400);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input.error {
+  border-color: var(--error);
+}
+
+.input.error:focus {
+  border-color: var(--error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.input.disabled {
+  background: var(--neutral-100);
+  color: var(--neutral-500);
+  cursor: not-allowed;
+}
+
+[data-theme="dark"] .input.disabled {
+  background: var(--neutral-700);
+}
+
+.icon {
+  position: absolute;
+  left: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--neutral-500);
+  pointer-events: none;
+}
+
+.errorMessage {
+  color: var(--error);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  display: block;
+}

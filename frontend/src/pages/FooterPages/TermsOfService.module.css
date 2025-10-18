@@ -1,0 +1,68 @@
+/* src/pages/FooterPages/TermsOfService.module.css */
+/* This file is styled identically to the Privacy Policy for consistency */
+.termsPage {
+    padding: var(--space-8) var(--space-6);
+    background: var(--background);
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+.header h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--on-background);
+    margin-bottom: var(--space-2);
+}
+
+.header p {
+    font-size: var(--text-base);
+    color: var(--neutral-500);
+}
+
+.termsCard {
+    padding: var(--space-8);
+}
+
+.termsCard h3 {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--on-background);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .termsCard h3 {
+    border-bottom-color: var(--neutral-700);
+}
+
+.termsCard p {
+    color: var(--on-surface);
+    margin-bottom: var(--space-4);
+    line-height: 1.7;
+}
+
+.link {
+    color: var(--primary-600);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.link:hover {
+    color: var(--primary-700);
+    text-decoration: underline;
+}

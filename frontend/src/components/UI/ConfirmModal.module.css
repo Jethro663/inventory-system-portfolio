@@ -1,0 +1,58 @@
+/* src/components/UI/ConfirmModal.module.css */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: var(--space-4);
+}
+
+.modal {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-2xl);
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+}
+
+.header {
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .header {
+    border-bottom-color: var(--neutral-700);
+}
+
+.header h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--on-background);
+    margin: 0;
+}
+
+.content {
+    padding: var(--space-6);
+    color: var(--on-surface);
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-6);
+    background: var(--neutral-50);
+}
+
+[data-theme="dark"] .actions {
+    background: var(--neutral-100);
+}

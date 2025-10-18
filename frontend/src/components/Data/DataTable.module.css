@@ -1,0 +1,389 @@
+/* src/components/Data/DataTable.module.css */
+.dataTable {
+    width: 100%;
+}
+
+.tableContainer {
+    position: relative;
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .tableContainer {
+    border-color: var(--neutral-700);
+    background: var(--surface-dark);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+}
+
+[data-theme="dark"] .table {
+    background: var(--surface-dark);
+}
+
+.table th {
+    background: var(--neutral-50);
+    padding: var(--space-4);
+    text-align: left;
+    font-weight: 600;
+    color: var(--neutral-900); /* Force dark text in light mode */
+    font-size: var(--text-sm);
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .table th {
+    background: var(--neutral-800);
+    border-bottom-color: var(--neutral-700);
+    color: var(--neutral-100); /* Force light text in dark mode */
+}
+
+.table td {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--neutral-200);
+    color: var(--neutral-800); /* Force dark text in light mode */
+}
+
+[data-theme="dark"] .table td {
+    border-bottom-color: var(--neutral-700);
+    color: white !important; /* Force light text in dark mode */
+}
+
+.table tr:last-child td {
+    border-bottom: none;
+}
+
+.sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--transition-fast);
+}
+
+.sortable:hover {
+    background: var(--neutral-100);
+}
+
+[data-theme="dark"] .sortable:hover {
+    background: var(--neutral-700);
+}
+
+.sorted {
+    background: var(--primary-50);
+    color: var(--primary-700);
+}
+
+[data-theme="dark"] .sorted {
+    background: var(--primary-900);
+    color: var(--primary-200);
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.sortIndicator {
+    font-size: var(--text-sm);
+}
+
+.tableRow {
+    transition: background-color var(--transition-fast);
+}
+
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-16);
+}
+
+.loadingOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+[data-theme="dark"] .loadingOverlay {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+.emptyState {
+    padding: var(--space-16);
+    text-align: center;
+    color: var(--neutral-500);
+}
+
+.emptyIcon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+}
+
+.emptyState h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+    color: var(--neutral-900);
+}
+
+[data-theme="dark"] .emptyState h3 {
+    color: var(--neutral-100);
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--surface);
+    border-top: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .pagination {
+    border-top-color: var(--neutral-700);
+    background: var(--surface-dark);
+}
+
+.pageInfo {
+    font-weight: 600;
+    color: var(--neutral-900);
+}
+
+[data-theme="dark"] .pageInfo {
+    color: var(--neutral-100);
+}
+
+:global([data-theme="dark"]) .tableColumn {
+    color: white !important;
+}
+
+/* Enhanced Pagination Styles */
+.pageNavigation {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.pageNumbers {
+    display: flex;
+    gap: var(--space-1);
+
+}
+
+.pageNumber {
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--neutral-300);
+    background: var(--background);
+    color: var(--neutral-700);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    min-width: 40px;
+    font-family: inherit;
+}
+
+[data-theme="dark"] .pageNumber {
+    border-color: var(--neutral-600);
+    background: var(--surface);
+    color: white !important;
+}
+
+.pageNumber:hover:not(:disabled) {
+    background: var(--neutral-100);
+    border-color: var(--neutral-400);
+    transform: translateY(-1px);
+}
+
+[data-theme="dark"] .pageNumber:hover:not(:disabled) {
+    background: var(--neutral-700);
+    border-color: var(--neutral-500);
+}
+
+.pageNumber:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.activePage {
+    background: var(--primary-500) !important;
+    color: white !important;
+    border-color: var(--primary-500) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+.activePage:hover {
+    background: var(--primary-600) !important;
+    border-color: var(--primary-600) !important;
+}
+
+[data-theme="dark"] .activePage {
+    background: var(--primary-600) !important;
+    border-color: var(--primary-600) !important;
+}
+
+[data-theme="dark"] .activePage:hover {
+    background: var(--primary-500) !important;
+    border-color: var(--primary-500) !important;
+}
+
+/* Page navigation buttons styling to match your theme */
+.pageButton {
+    min-width: 80px;
+    border: 1px solid var(--neutral-300);
+    background: var(--background);
+    color: var(--neutral-700);
+    font-weight: 500;
+    padding: 10px;
+    border-radius: var(--radius-lg);
+}
+
+[data-theme="dark"] .pageButton {
+    border-color: var(--neutral-600);
+    background: var(--surface);
+    color: white !important;
+}
+
+.pageButton:hover:not(.Button_disabled__nU5Ih) {
+    background: var(--neutral-100);
+    border-color: var(--neutral-400);
+    transform: translateY(-1px);
+}
+
+[data-theme="dark"] .pageButton:hover:not(.Button_disabled__nU5Ih) {
+    background: var(--neutral-700);
+    border-color: var(--neutral-500);
+}
+
+/* Make sure the disabled state matches your theme */
+.pageButton.Button_disabled__nU5Ih {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    border-color: var(--neutral-300);
+}
+
+[data-theme="dark"] .pageButton.Button_disabled__nU5Ih {
+    border-color: var(--neutral-600);
+}
+
+/* Page info styling */
+.pageInfo {
+    font-weight: 600;
+    color: var(--neutral-600);
+    font-size: var(--text-sm);
+}
+
+[data-theme="dark"] .pageInfo {
+    color: var(--neutral-400);
+}
+
+/* Responsive pagination */
+@media (max-width: 768px) {
+    .pagination {
+        flex-direction: column;
+        gap: var(--space-4);
+        align-items: stretch;
+    }
+
+    .pageNavigation {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+    }
+
+    .pageNumbers {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: var(--space-2);
+        gap: var(--space-1);
+    }
+
+    .pageNumber {
+        min-width: 36px;
+        padding: var(--space-2);
+        font-size: var(--text-xs);
+    }
+
+    .pageButton {
+        min-width: 70px;
+        font-size: var(--text-xs);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .pageInfo {
+        text-align: center;
+        font-size: var(--text-xs);
+    }
+}
+
+@media (max-width: 480px) {
+    .pageNumbers {
+        gap: var(--space-1);
+    }
+
+    .pageNumber {
+        min-width: 32px;
+        padding: var(--space-2);
+        font-size: var(--text-xs);
+    }
+
+    .pageButton {
+        min-width: 60px;
+        font-size: var(--text-xs);
+        padding: var(--space-2);
+    }
+
+    .pageNavigation {
+        gap: var(--space-1);
+    }
+}
+
+/* Ensure pagination container matches your theme */
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--surface);
+    border-top: 1px solid var(--neutral-200);
+    gap: var(--space-4);
+}
+
+[data-theme="dark"] .pagination {
+    border-top-color: var(--neutral-700);
+
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tableContainer {
+        overflow-x: auto;
+    }
+
+    .table {
+        min-width: 600px;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+}

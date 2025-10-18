@@ -1,0 +1,238 @@
+/* src/pages/Reports/Reports.module.css */
+.reports {
+  min-height: 100vh;
+  background: var(--background);
+  padding: var(--space-8) var(--space-6);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.header h1 {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--on-background);
+  margin-bottom: var(--space-2);
+}
+
+.header p {
+  color: var(--neutral-500);
+  font-size: var(--text-lg);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+}
+
+.metricCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-6);
+}
+
+.metricIcon {
+  font-size: var(--text-3xl);
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .metricIcon {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.metricContent h3 {
+  font-size: var(--text-sm);
+  color: var(--neutral-500);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metricValue {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--on-background);
+  display: block;
+}
+
+.chartSection {
+  margin-bottom: var(--space-8);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.chartHeader h2 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--on-background);
+}
+
+.chartContent {
+  padding: var(--space-4) 0;
+}
+
+.distributionChart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.chartItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.chartBar {
+  flex: 1;
+  height: 8px;
+  background: var(--neutral-200);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.chartFill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--primary-500);
+  transition: width 0.8s ease;
+}
+
+.chartLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+  gap: var(--space-2);
+}
+
+.categoryName {
+  font-weight: 600;
+  color: var(--on-background);
+}
+
+.categoryCount {
+  font-size: var(--text-sm);
+  color: var(--neutral-500);
+}
+
+.activitySection {
+  margin-bottom: var(--space-8);
+}
+
+.activitySection h2 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--on-background);
+  margin-bottom: var(--space-4);
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  transition: all var(--transition-fast);
+}
+
+[data-theme="dark"] .activityItem {
+  border-color: var(--neutral-700);
+}
+
+.activityIcon {
+  font-size: var(--text-xl);
+  padding: var(--space-2);
+  background: var(--primary-100);
+  border-radius: var(--radius-md);
+}
+
+[data-theme="dark"] .activityIcon {
+  background: var(--primary-900);
+}
+
+.activityDetails {
+  flex: 1;
+}
+
+.activityTitle {
+  font-weight: 600;
+  color: var(--on-background);
+  margin-bottom: var(--space-1);
+}
+
+.activityDescription {
+  font-size: var(--text-sm);
+  color: var(--neutral-500);
+}
+
+.activityTime {
+  font-size: var(--text-sm);
+  color: var(--neutral-500);
+}
+
+.noData {
+  text-align: center;
+  padding: var(--space-8);
+  color: var(--neutral-500);
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reports {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .header {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .chartLabel {
+    min-width: 150px;
+  }
+
+  .activityItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .activityTime {
+    align-self: flex-end;
+  }
+}

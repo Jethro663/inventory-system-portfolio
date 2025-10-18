@@ -1,0 +1,298 @@
+/* src/pages/Auth/Auth.module.css */
+.authContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.authBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-50) 0%,
+    var(--secondary-50) 50%,
+    var(--accent-50) 100%
+  );
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .gradient {
+  background: linear-gradient(
+    135deg,
+    var(--primary-900) 0%,
+    var(--secondary-900) 50%,
+    var(--accent-900) 100%
+  );
+  opacity: 0.8;
+}
+
+.authContent {
+  width: 100%;
+  max-width: 400px;
+}
+
+.authCard {
+  padding: var(--space-8);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-glass);
+}
+
+[data-theme="dark"] .authCard {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.authHeader h1 {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--on-background);
+  margin-bottom: var(--space-2);
+}
+
+.authHeader p {
+  color: var(--neutral-500);
+  font-size: var(--text-sm);
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.errorMessage {
+  background: var(--error);
+  color: white;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.passwordStrength {
+  margin-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.strengthBar {
+  width: 100%;
+  height: 4px;
+  background: var(--neutral-200);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.strengthFill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: width 0.3s ease;
+}
+
+/* Sparkly Submit Button */
+.submitButton {
+    margin-top: var(--space-2);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+            135deg,
+            var(--primary-500) 0%,
+            var(--primary-600) 25%,
+            var(--primary-500) 50%,
+            var(--primary-600) 75%,
+            var(--primary-500) 100%
+    );
+    background-size: 200% 200%;
+    animation: shimmer 3s ease-in-out infinite;
+    border: none;
+    box-shadow:
+            0 4px 15px rgba(99, 102, 241, 0.3),
+            0 0 20px rgba(99, 102, 241, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+
+    /* 10% bigger with rounded corners */
+    padding: calc(var(--space-3) * 1.1) calc(var(--space-6) * 1.1);
+    font-size: calc(var(--text-base) * 1.1);
+    font-weight: 600;
+    border-radius: var(--radius-xl);
+}
+
+.submitButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4),
+            transparent
+    );
+    transition: left 0.5s ease;
+    border-radius: var(--radius-xl);
+}
+
+.submitButton:hover::before {
+    left: 100%;
+}
+
+.submitButton:hover {
+    transform: translateY(-2px);
+    box-shadow:
+            0 6px 20px rgba(99, 102, 241, 0.4),
+            0 0 25px rgba(99, 255, 255, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    animation-duration: 2s;
+}
+
+.submitButton:active {
+    transform: translateY(0);
+    box-shadow:
+            0 2px 10px rgba(99, 102, 241, 0.3),
+            0 0 15px rgba(99, 102, 241, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Sparkle particles effect */
+.submitButton::after {
+    content: '✨';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    font-size: var(--text-sm);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.submitButton:hover::after {
+    opacity: 1;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+}
+
+/* Loading state sparkles */
+.submitButton:disabled {
+    position: relative;
+    overflow: hidden;
+}
+
+.submitButton:disabled::before {
+    content: '✨✨✨';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: var(--text-lg);
+    animation: loadingSparkles 1.5s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes loadingSparkles {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translate(-50%, -50%) rotate(90deg) scale(1.2);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1);
+        opacity: 1;
+    }
+    75% {
+        transform: translate(-50%, -50%) rotate(270deg) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+        opacity: 0.5;
+    }
+}
+
+.authFooter {
+  text-align: center;
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--neutral-200);
+}
+
+[data-theme="dark"] .authFooter {
+  border-top-color: var(--neutral-700);
+}
+
+.authFooter p {
+  color: var(--neutral-500);
+  font-size: var(--text-sm);
+}
+
+.link {
+  color: var(--primary-600);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--primary-700);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .authContainer {
+    padding: var(--space-4);
+  }
+
+  .authCard {
+    padding: var(--space-6);
+  }
+}

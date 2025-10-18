@@ -1,0 +1,311 @@
+/* src/pages/Transactions/AssetTransactions.module.css */
+.transactions {
+    min-height: 100vh;
+    background: var(--background);
+    padding: var(--space-8) var(--space-6);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-6);
+}
+
+.header h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--on-background);
+    margin-bottom: var(--space-2);
+}
+
+.header p {
+    color: var(--neutral-500);
+    font-size: var(--text-lg);
+}
+
+.filters {
+    margin-bottom: var(--space-6);
+    padding: var(--space-4); /* Reduced padding */
+    background: var(--surface);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-lg);
+}
+
+.radioGroup input[type="radio"] {
+    margin: 0;
+    display: none;
+}
+
+
+/* Filter Grid Layout - SINGLE ROW */
+.filterGrid {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3); /* Reduced gap */
+    flex-wrap: nowrap; /* FORCE NO WRAPPING */
+    justify-content: space-between; /* Spread items out */
+    width: 100%;
+}
+
+/* REMOVE searchSection styles - they're not being used */
+
+/* Input field styling */
+input {
+    max-width: 400px;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+
+
+/* Radio Group */
+.radioGroup {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    background: var(--background);
+    padding: var(--space-2);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--neutral-300);
+    transition: border-color var(--transition-fast);
+    margin: 0;
+    flex-shrink: 0;
+}
+
+
+
+.radioGroup:focus-within {
+    border-color: var(--primary-500);
+    outline: none;
+}
+
+.radioGroup label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--on-background);
+    cursor: pointer;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.radioGroup label:hover {
+    background: var(--neutral-100);
+}
+
+
+[data-theme="dark"] .radioGroup label:hover {
+    background: var(--neutral-700);
+    color: var(--neutral-100);
+}
+
+/* Selected radio button styles */
+.radioGroup input[type="radio"]:checked + span {
+    font-weight: 600;
+    color: var(--primary-600);
+}
+
+[data-theme="dark"] .radioGroup input[type="radio"]:checked + span {
+    color: var(--primary-400);
+}
+
+/* Active/selected radio button background */
+.radioGroup label:has(input[type="radio"]:checked) {
+    background: var(--primary-50);
+    border-color: var(--primary-200);
+}
+
+[data-theme="dark"] .radioGroup label:has(input[type="radio"]:checked) {
+    background: var(--primary-900);
+    border-color: var(--primary-700);
+    color: var(--primary-200);
+}
+
+.radioGroup input[type="radio"] {
+    margin: 0;
+}
+
+/* Action Group */
+.actionGroup {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+/* Select */
+.select {
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--neutral-300);
+    border-radius: var(--radius-lg);
+    background: var(--background);
+    color: var(--on-background);
+    font-size: var(--text-base);
+    font-family: inherit;
+    min-width: 160px;
+    height: auto;
+    transition: border-color var(--transition-fast);
+    flex-shrink: 0;
+}
+
+
+
+[data-theme="dark"] .select {
+    background: var(--background);
+    color: white;
+}
+
+.select:focus {
+    border-color: var(--primary-500);
+    outline: none;
+}
+
+/* Add Transaction button */
+.actionGroup .button {
+    white-space: nowrap;
+    padding: var(--space-3) var(--space-4);
+    flex-shrink: 0;
+}
+
+/* Table Styles */
+.actionCell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.actionIcon {
+    font-size: var(--text-lg);
+}
+
+.actionText {
+    text-transform: capitalize;
+    color: var(--on-background);
+}
+
+[data-theme="dark"] .actionText {
+    color: var(--neutral-100);
+}
+
+.assetName {
+    font-weight: 600;
+    color: var(--neutral-800);
+}
+
+[data-theme="dark"] .assetName {
+    color: var(--neutral-200);
+}
+
+.userName {
+    color: var(--primary-600);
+    font-weight: 500;
+}
+
+[data-theme="dark"] .userName {
+    color: var(--primary-400);
+}
+
+/* Ensure table text is visible in dark mode */
+.dataTable td {
+    color: var(--on-background);
+}
+
+[data-theme="dark"] .dataTable td {
+    color: var(--neutral-100);
+}
+
+/* Responsive Design - UPDATED */
+@media (max-width: 1024px) {
+    .filterGrid {
+        gap: var(--space-3);
+    }
+}
+
+@media (max-width: 768px) {
+    .transactions {
+        padding: var(--space-6) var(--space-4);
+    }
+
+    .filters {
+        padding: var(--space-4);
+    }
+
+    .header {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .header h1 {
+        font-size: var(--text-2xl);
+    }
+
+    .header p {
+        font-size: var(--text-base);
+    }
+
+    .filterGrid {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-3);
+    }
+
+    input {
+        max-width: 100%;
+    }
+
+    .radioGroup {
+        justify-content: center;
+    }
+
+    .actionGroup {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .transactions {
+        padding: var(--space-4) var(--space-3);
+    }
+
+    .filters {
+        padding: var(--space-3);
+    }
+
+    .radioGroup {
+        flex-wrap: wrap;
+        padding: var(--space-2);
+    }
+
+    .radioGroup label {
+        padding: var(--space-2);
+        font-size: var(--text-xs);
+        flex: 1;
+        min-width: 70px;
+        justify-content: center;
+    }
+
+    .actionGroup {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .select {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .actionGroup .button {
+        width: 100%;
+    }
+}

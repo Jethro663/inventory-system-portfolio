@@ -1,0 +1,87 @@
+/* src/pages/Transactions/BorrowRequestsAdmin.module.css */
+/* NOTE: small module to keep layout consistent with your app's look & feel */
+
+.container {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* Header area (title + controls) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: var(--text-xl);
+    color: var(--on-background);
+}
+
+/* Controls group (search + buttons) */
+.controls {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+/* Slightly constrain search input width */
+.searchInput {
+    min-width: 280px;
+    max-width: 520px;
+}
+
+/* Actions column cell layout */
+.actionsCell {
+    width: 220px;
+}
+
+/* Buttons container inside actions cell */
+.actions {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+/* Status badge */
+.statusBadge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: var(--text-sm);
+    background: var(--neutral-100);
+    color: var(--neutral-800);
+}
+
+/* Modal content */
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.label {
+    font-weight: 700;
+    font-size: var(--text-sm);
+}
+
+.textarea {
+    min-height: 100px;
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-200);
+    font-family: inherit;
+    font-size: var(--text-sm);
+    resize: vertical;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-2);
+}
